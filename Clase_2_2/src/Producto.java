@@ -82,8 +82,8 @@ public class Producto {
         for (int i = 0; i < vectorProductos.length; i++){
             if (vectorProductos[i].getCodigo().equals(codProducto)){
                 vectorProductos[i].setCantidadBodega(vectorProductos[i].getCantidadBodega() - cantidadApedir);
-                return vectorProductos[i].CalcularTotal(cantidadApedir);
-                //return (vectorProductos[i].getPrecioVenta() - (vectorProductos[i].getPrecioVenta()*(vectorProductos[i].getPorcentajeDcto()/100))) * cantidadApedir;
+                //return vectorProductos[i].CalcularTotal(cantidadApedir);
+                return (vectorProductos[i].getPrecioVenta() - (vectorProductos[i].getPrecioVenta()*(vectorProductos[i].getPorcentajeDcto()/100))) * cantidadApedir;
             }
         }
         return 0;
@@ -94,5 +94,17 @@ public class Producto {
     public static void MostrarBodega(Producto[] vectorProductos) {
         for(int i = 0; i < vectorProductos.length ; i++)
             System.out.println(vectorProductos[i].getCodigo() + " "+vectorProductos[i].getCantidadBodega());
+    }
+    public static void ImprimirMayor(Producto[] vector) {
+        String codMayor = "";
+        int cantMayor = -1;
+        System.out.println("--------- El codigo con mayor cantidad en bodega es -------");
+        for (int i = 0; i < vector.length; i++ ){
+            if (vector[i].getCantidadBodega() > cantMayor){
+                cantMayor = vector[i].getCantidadBodega();
+                codMayor = vector[i].getCodigo();
+            }
+        }
+        System.out.println("El producto con mayor cantidad de unidades en bodega es: "+codMayor+" con "+ cantMayor);
     }
 }

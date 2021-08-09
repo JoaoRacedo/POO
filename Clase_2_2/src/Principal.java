@@ -22,7 +22,7 @@ public class Principal {
                     case 1: // Verificar existencia de productos
                         break;
                     case 2: // Producto Mayor cantidad
-
+                        Producto.ImprimirMayor(vectorProductos);
                         break;
                     case 3: // Mostrar total a pagar dado un codigo
                         TotalPago = Producto.CalcularTotalPedido(vectorProductos, sc);
